@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const screens = [<Home />, <About />, <Contact />];
+  const [currentScreenIndex, setCurrentScreenIndex] = useState(0);
+
+  const nextScreen = () => {
+    setCurrentScreenIndex((prevIndex) => (prevIndex + 1) % screens.length);
+  };
+
+  const prevScreen = () => {
+    setCurrentScreenIndex((prevIndex) =>
+      prevIndex === 0 ? screens.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="screen">{screens[currentScreenIndex]}</div>
+      <div className="navigation-buttons">
+        <button onClick={prevScreen}>Previous</button>
+        <button onClick={nextScreen}>Next</button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
