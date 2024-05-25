@@ -1,7 +1,7 @@
 import React from "react";
 
-const Contact = () => {
-  return <div>Contact Screen</div>;
+const Contact = ({ onClick }) => {
+  return <div onClick={() => onClick("Contact")}>Contact Screen</div>;
 };
 
 export default Contact;

@@ -3,11 +3,11 @@
   padding: 20px;
 }
 
-.screen {
-  margin-bottom: 20px;
-  padding: 20px;
+.available-screens>div {
+  margin: 10px 0;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  cursor: pointer;
 }
 
 .navigation-buttons button {
@@ -15,4 +15,11 @@
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+}
+
+.screen {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
